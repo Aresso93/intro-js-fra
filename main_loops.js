@@ -279,33 +279,78 @@ console.log(chessboard);
 
 
 
-const size = 4;
+const size = 3;
 // 
-
 let chessboard2 = '';
-for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++ ){
-/*  
+for (let i = 0; i < size; i++) { // i - righe
+    for (let j = 0; j < size; j++) { // j - colonne
+        if ( i % 2 === 0){ // se i è pari la riga pari  
+            if (j % 2 === 0){  // se j è pari la colonna pari
+                chessboard2 = chessboard2 + '☐';
+            } else {
+                chessboard2 = chessboard2 + '❤';
+            }
+        } else {
+                if (j % 2 === 0){       // riga dispari
+                chessboard2 = chessboard2 + '❤';
+            } else {
+                chessboard2 = chessboard2 + '☐'; // colonna dispari
+            }
+        }        
+    } 
+    chessboard2 = chessboard2 + '\n';
+}
+console.log(chessboard2);
 
+/*  
     se i è pari {
         se j è pari{
-            aggiungo a chessboard2 uno spazio
+            aggiungo a chessboard2 uno spazio // square
         } altrimenti {
-            aggiungo a chessboard2 un cancelletto
+            aggiungo a chessboard2 un cancelletto // heart
         }
     }  altrimenti {
         se j è dispari{
-            aggiungo a chessboard2 un cancelletto
+            aggiungo a chessboard2 un cancelletto // heart
         } altrimenti {
-            aggiungo a chessboard2 uno spazio
+            aggiungo a chessboard2 uno spazio // square
         }
     }
-
 // aggiungo a chessboard uno \n
-
 */
-    }
-} 
 
 // per ogni giro che fa i
 // per la riga 0 controllerà le 4 colonne
+
+
+const size2 = 4;
+// 
+let chessboard3 = '';
+    for (let i = 0; i < size2; i++) { // 
+        for (let j = 0; j < size2; j++) { // 
+            if (i % 2 === 0 && j % 2 === 0){
+                chessboard3 = chessboard3 + 'PARI';
+        } else if (i % 2 === 0 && j % 2 !== 0){
+                chessboard3 = chessboard3 + 'DISP';
+        } else if (i % 2 !== 0 && j % 2 === 0){
+            chessboard3 = chessboard3 + 'DISP';
+        } else if (i % 2 !== 0 && j % 2 !== 0) {
+            chessboard3 = chessboard3 + 'PARI';
+        }
+        chessboard3 = chessboard3 + '\n';
+    }
+console.log(chessboard3);
+}
+
+
+/// correggere:
+// let chessboard4 = '';
+// for (let i = 0; i < size2; i++) { // 
+//     for (let j = 0; j < size2; j++) { // 
+//         if ((i - j) % 2 === 0) { chessboard4 = chessboard4 + 'P'; }
+//     } if ((i - j) % 2 !== 0) {
+//         chessboard4 = chessboard4 + 'D'; 
+//     }
+//     chessboard4 = chessboard4 + '\n';
+// }
+// console.log(chessboard3);

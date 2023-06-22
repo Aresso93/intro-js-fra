@@ -321,3 +321,35 @@ console.log(chessboard);
 
 
 // riguardare esercizi!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+const size = 4;
+// 
+
+let chessboard2 = '';
+for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++ ){
+/*  
+
+    se i è pari {
+        se j è pari{
+            aggiungo a chessboard2 uno spazio
+        } altrimenti {
+            aggiungo a chessboard2 un cancelletto
+        }
+    }  altrimenti {
+        se j è dispari{
+            aggiungo a chessboard2 un cancelletto
+        } altrimenti {
+            aggiungo a chessboard2 uno spazio
+        }
+    }
+
+// aggiungo a chessboard uno \n
+
+*/
+    }
+} 
+
+// per ogni giro che fa i
+// per la riga 0 controllerà le 4 colonne
