@@ -3,7 +3,7 @@ console.log('array');
 
 // // const nomeVariabile = [array1, array2, etc..]
 // // scatola che contiene un array di stringhe
-// const pippo = ['pane', 'pasta', 'latte', 'caffè'];
+const pippo = ['pane', 'pasta', 'latte', 'caffè'];
 // console.log(pippo);
 // console.log(pippo.length);
 
@@ -13,68 +13,67 @@ console.log('array');
 // console.log('INIZIO: AGGIUNGERE ELEMENTI')
 // // AGGIUNGERE elementi
 // // funzione push e unshift
-// console.log('push aggiunge in coda:')
-// pippo.push('acqua'); // aggiunge all'array un elemento in coda
-// console.log(pippo);
-// // ---
-// console.log('unshift aggiunge in testa:')
-// pippo.unshift('biscotti'); // aggiunge all'array un elemento in testa
-// console.log(pippo);
+//console.log('push aggiunge in coda:')
+//pippo.push('acqua', 'vino'); // aggiunge all'array un elemento in coda, o più se separati da virgole
+//console.log(pippo);
+//// ---
+//console.log('unshift aggiunge in testa:')
+//pippo.unshift('biscotti'); // aggiunge all'array un elemento in testa
+//console.log(pippo);
 
 
 // console.log('PARTE 2: TOGLIERE ELEMENTI')
-// // TOGLIERE elementi
+//TOGLIERE elementi
 // console.log('pop toglie in coda:')
 // const pippo2 = ['pane', 'pasta', 'latte', 'caffè'];
 // // ---
 // const elementoCoda = pippo2.pop();
 // console.log(elementoCoda);
-// console.log(pippo);
-// // ---
+// console.log(pippo2);
+// ---
 // console.log('shift toglie in testa:');
 
-// const elementoTesta = pippo2.shift(); // 
-// console.log(elementoTesta);
-// console.log(pippo2);
-
+//const elementoTesta = pippo2.shift(); // 
+//console.log(elementoTesta);
+//console.log(pippo2);
 
 
 // // CICLI ED ARRAY --------------------------------------
-// const pluto = [1, 2, 23, -4, 345, 0]
+//const pluto = [1, 2, 23, -4, 345, 0]
+//
+//console.log(pluto[0]);
+//
+//console.log(pluto[2]);
+//
+//console.log(pluto[pluto.length -1]); // ultimo elemento a prescindere da quanti ce ne siano, se 3 o 600!
+//
+//// // CICLO FOR:
+//for (let i = 0; i < pluto.length; i++) {
+//        const element = pluto[i];
+//            console.log(element);
+//    }
+//
+//for (const iterator of object)
+//for (const element of pluto) { //for of
+//     console.log(element);
+//}
 
-// console.log(pluto[0]);
 
-// console.log(pluto[2]);
-
-// console.log(pluto[pluto.length -1]); // ultimo elemento!
-
-// // CICLO FOR:
-// for (let i = 0; i < pluto.length; i++) {
-//         const element = pluto[i];
-//             console.log(element);
-//     }
-
-// // for (const iterator of object)
-//    for (const element of pluto) { //for of
-//         console.log(element);
-// }
-
-
-// // CICLO WHILE:
-// // let i = 0;
-// // while (i < pluto.length){
-// //     const element = pluto[i];
-// //     console.log(element);
-// //     i++;
-// // }
-
+//CICLO WHILE:
+//let i = 0;                       //l'indice scorre tutto il mio ciclo partendo da 0 (dunque il primo elemento, in JS), per cui se per esempio metto che i=1, mi parte a printare dal
+//while (i < pluto.length){        //secondo elemento del mio array
+//    const element = pluto[i];
+//    console.log(element);
+//    i++;
+//}
+//
 // console.log('ciclo array al contrario:')
 // // CICLARE ARRAY AL CONTRARIO
 
-// for (let i = pluto.length -1; i >= 0; i--) {
-//     const element = pluto[i];
-//     console.log(element);
-// }
+//for (let i = pluto.length -1; i >= 0; i--) {      //il valore di i deve essere il mio punto di partenza da dove partire, pertanto se voglio ciclare al contrario ho bisogno di
+//    const element = pluto[i];                     //partire dall'ultimo elemento (per questo i = pluto.length - 1, perché blabla.length - 1 è la formula per accedere all'ultimo elemento)  
+//    console.log(element);
+//}
 
 // -------------------------------------------------------------------------------------------
 // TRASFORMAZIONI DI ARRAY -------------------------------------------------------------------
@@ -96,7 +95,7 @@ function multiplyArrayBy2(selectedArray){
 
     return newArray;
 }
-//                            invocarla(passareArrray)
+//                            invocarla(passareArray)
 console.log('multiply by 2:', multiplyArrayBy2(paperino));
 
 // -------------------------------------------------------------------------------------------
@@ -215,3 +214,189 @@ function removeNegativeAndMultiply(selectedArray){
 }
 
 console.log(removeNegativeAndMultiply(qui));
+
+// 1) mapping function che prende in input un array di numeri
+// e restituisce un array con tutti i numeri diminuiti di uno
+
+const numbersArray = [23, 45, 12, -8, -6, 23, 45, 1, 45, 34, 2]
+const stringsArray = ['23', 'PIPPO', 'pluto', 'la CASA blu', 'Osvaldo', '', 'porchetta'];
+
+function arrayMinusOne (selectedArray) {
+    const emptyArray = [];
+
+    for (let i = 0; i < selectedArray.length; i++) {
+        const element = selectedArray[i];
+        const smallerElement = element -1;
+        emptyArray.push(smallerElement);
+    }
+    return emptyArray
+}
+
+console.log('Array diminuito', arrayMinusOne(numbersArray))
+
+// 2) mapping function che prende in input un array di numeri
+// e restituisce un array con i numeri e il valore assoluto dei numeri (i negativi devono essere senza segno)
+
+//se un elemento < 0, gli sommo se stesso per due. numero nuovo = -4 + (4*2)
+
+function arrayAbsolute (selectedArray) {
+    const emptyArray = [];
+
+    for (let i = 0; i < selectedArray.length; i++) {
+        const element = selectedArray[i];
+        const absoluteElement = element + (element * -2);
+       
+        
+        if (element < 0) {
+            emptyArray.push(absoluteElement);
+            
+        } else {
+            emptyArray.push(element);
+            
+        }
+        
+    }
+    return emptyArray
+
+}
+
+console.log('Array diminuito', arrayMinusOne(numbersArray))
+console.log('Array valori assoluti', arrayAbsolute(numbersArray))
+
+// 3) mapping function che prende in input un array di numeri
+// e restituisce un array di stringhe con scritto 'PARI' se il numero corrispondente è pari 
+// o 'DISPARI' se il numero corrispondente è dispari
+
+function arrayOddOrEven (selectedArray) {
+    const emptyArray = [];
+
+    for (let i = 0; i < selectedArray.length; i++) {
+        const element = selectedArray[i];
+        const evenElement = 'PARI';
+        const oddElement = 'DISPARI';
+        if (element % 2 === 0) {
+            emptyArray.push(evenElement);
+        } else {
+            emptyArray.push(oddElement);
+        }
+       
+    }
+    return emptyArray
+}
+
+
+
+console.log('Array pari o dispari', arrayOddOrEven(numbersArray))
+
+
+// 4) mapping function che prende in input un array di stringhe
+// e la restituisce tutte minuscole
+
+function lowerCaseString (selectedArray) {
+    const emptyArray = [];
+
+    for (let i = 0; i < selectedArray.length; i++) {
+        const element = selectedArray[i];
+        
+        if (typeof element === 'string') {
+            lowerCaseElement = element.toLowerCase();
+            emptyArray.push(lowerCaseElement);
+        } else {
+            return element;
+        }
+       
+    }
+    return emptyArray
+}
+
+
+
+console.log('Stringe minuscolizzate', lowerCaseString(stringsArray))
+
+
+// 5) mapping function che prende in input un array di stringhe
+// e restituisce un array di numeri con le lunghezze delle stringhe
+
+function lengthOfString (selectedArray) {
+    const emptyArray = [];
+
+    for (let i = 0; i < selectedArray.length; i++) {
+        const element = selectedArray[i];
+        
+        if (typeof element === 'string') {
+        const lengthElement = element.length;
+        emptyArray.push(lengthElement);
+    
+    
+    }
+}
+    return emptyArray;
+
+}
+console.log('Lunghezze delle stringhe', lengthOfString(stringsArray))
+
+// 6) mapping function che prende in input un array di stringhe
+// e restituisce le stringhe in formato CamelCase
+
+
+
+// 7) filter function che prende in input un array di stringhe
+// e restituisce solo quelle più lunghe di tre caratteri
+
+function longStringsOnly(selectedArray){
+
+    const emptyArray = [];
+
+    for (let i = 0; i < selectedArray.length; i++) {   
+        
+        const element = selectedArray [i];
+        
+        if(typeof element === 'string' && element.length > 3){                                       
+            emptyArray.push(element);
+        }
+    }
+    return emptyArray;
+}
+
+console.log('Long strings only:', longStringsOnly(stringsArray));
+
+// 8) filter function che prende in input un array di stringhe
+// e restituisce solo quelle che contengono la lettera 'p'
+
+function stringsWithPOnly(selectedArray){
+
+    const emptyArray = [];
+
+    for (let i = 0; i < selectedArray.length; i++) {   
+        
+        const element = selectedArray [i];
+        
+        if(typeof element === 'string' && element.includes('P') || element.includes('p')){                                       
+            emptyArray.push(element);
+        }
+    }
+    return emptyArray;
+}
+
+console.log('Only strings that contain "p":', stringsWithPOnly(stringsArray));
+
+// 9) filter function che prende in input un array di numeri
+// e restituisce i positivi divisibili per 3
+
+function divisibleBy3String(selectedArray){
+    const emptyArray = [];
+
+    for (let i = 0; i < selectedArray.length; i++) {     
+        const element = selectedArray [i]   
+        if(element > 0 && element % 3 === 0){
+            emptyArray.push(element);
+        }
+    }
+    return emptyArray;
+    
+}
+
+console.log('Only positive numbers divisible by 3:', divisibleBy3String(numbersArray));
+
+// 10) fare una copia della home del sito di AXIA FORMAZIONE
+
