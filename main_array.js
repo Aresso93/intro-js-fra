@@ -229,7 +229,7 @@ function arrayMinusOne (selectedArray) {
         const smallerElement = element -1;
         emptyArray.push(smallerElement);
     }
-    return emptyArray
+    return emptyArray;
 }
 
 console.log('Array diminuito', arrayMinusOne(numbersArray))
@@ -244,7 +244,7 @@ function arrayAbsolute (selectedArray) {
 
     for (let i = 0; i < selectedArray.length; i++) {
         const element = selectedArray[i];
-        const absoluteElement = element + (element * -2);
+        const absoluteElement = element + (element * -2);    //si poteva fare anche *-1 senza tutta l'espressione, o addirttura con Math.abs, che fa esattamente quello
        
         
         if (element < 0) {
@@ -256,7 +256,7 @@ function arrayAbsolute (selectedArray) {
         }
         
     }
-    return emptyArray
+    return emptyArray;
 
 }
 
@@ -273,7 +273,7 @@ function arrayOddOrEven (selectedArray) {
     for (let i = 0; i < selectedArray.length; i++) {
         const element = selectedArray[i];
         const evenElement = 'PARI';
-        const oddElement = 'DISPARI';
+        const oddElement = 'DISPARI';                            
         if (element % 2 === 0) {
             emptyArray.push(evenElement);
         } else {
@@ -281,8 +281,9 @@ function arrayOddOrEven (selectedArray) {
         }
        
     }
-    return emptyArray
+    return emptyArray;
 }
+
 
 
 
@@ -306,7 +307,7 @@ function lowerCaseString (selectedArray) {
         }
        
     }
-    return emptyArray
+    return emptyArray;
 }
 
 
@@ -338,6 +339,55 @@ console.log('Lunghezze delle stringhe', lengthOfString(stringsArray))
 // 6) mapping function che prende in input un array di stringhe
 // e restituisce le stringhe in formato CamelCase
 
+//questo va fatto in tre sezioni principali
+
+function toFirstCase (selectedWord) {
+    const firstChar = selectedWord [0];    
+    const firstCharUpper = firstChar.toUpperCase();
+    const restOfTheString = selectedWord.slice(1);
+    return firstCharUpper + restOfTheString;
+}
+
+function toCamelCase(selectedString){
+
+    const lowerString = selectedString.toLowerCase();   //tutta la stringa viene resa minuscola
+    const wordsArray = lowerString.split(' ');                //crea un array di parole spezzando lungo gli spazi. Se la stringa non ha spazi, l'array è di un solo elemento
+    if (wordsArray.length===1) {                             //per cui se è una parola sola rimane tutta minuscola
+        return lowerString;
+    }
+
+    let camelString = '';
+    for (let i = 0; i < wordsArray.length; i++) {
+        const element = wordsArray[i];
+        
+        if (i===0) {
+            camelString += element;
+        } else {
+            camelString += toFirstCase(element);
+        }
+        
+
+    }
+    return camelString;
+}
+console.log(toCamelCase('bla blaaaa blaaaaaaaaaaaaaaa'))
+
+function toCamelCaseAll (arrayOfStrings) {
+    const emptyArray = [];
+
+    for (let i = 0; i < arrayOfStrings.length; i++) {
+    
+        const element = arrayOfStrings[i];
+        
+      const newElement = toCamelCase(element);  
+      
+      emptyArray.push(newElement);
+    
+    }
+}
+    return emptyArray;
+
+console.log(toCamelCaseAll('bla blaaaaaaaaaaaaaaa blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'))
 
 
 // 7) filter function che prende in input un array di stringhe
@@ -351,7 +401,7 @@ function longStringsOnly(selectedArray){
         
         const element = selectedArray [i];
         
-        if(typeof element === 'string' && element.length > 3){                                       
+        if(typeof element === 'string' && element.length > 3){           //il typeof in verità è superfluo e funziona perfettamente anche senza. E inoltre può dare problemi che non tenga conto degli undefined                            
             emptyArray.push(element);
         }
     }
@@ -367,7 +417,7 @@ function stringsWithPOnly(selectedArray){
 
     const emptyArray = [];
 
-    for (let i = 0; i < selectedArray.length; i++) {   
+    for (let i = 0; i < selectedArray.length; i++) {            //per rendere la cosa non case sensitive si fa element.toLowerCase().includes('p'). Prima le faccio tutte minuscole e controllo se contengono il carattere minuscolo
         
         const element = selectedArray [i];
         
