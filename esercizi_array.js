@@ -7,20 +7,6 @@ const stringsArray = ['23', 'PIPPO', 'pluto', 'la CASA blu', 'Osvaldo', '', 'por
 // 1) mapping function che prende in input un array di numeri
 // e restituisce un array con tutti i numeri diminuiti di uno
 
-function arrayMinusOne (selectedArray) {
-    const emptyArray = [];
-
-    for (let i = 0; i < selectedArray.length; i++) {
-        const element = selectedArray[i];
-        const biggerElement = element -1;
-        emptyArray.push(biggerElement);
-    }
-    return emptyArray
-}
-
-console.log('Array diminuito', arrayMinusOne(numbersArray))
-
-
 // 2) mapping function che prende in input un array di numeri
 // e restituisce un array con i numeri  e il valore assoluto dei numeri (i negativi devono essere senza segno)
 
