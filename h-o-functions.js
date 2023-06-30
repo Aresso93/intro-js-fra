@@ -740,3 +740,4 @@ function isGreaterThan30Chars(element){
 
 console.log(stringsArray.some(isGreaterThan3Chars));
 console.log(stringsArray.some(isGreaterThan30Chars));
+
