@@ -200,7 +200,7 @@ function onlyContainsPSum(arr) {
     const stringsLengthArraySum = stringsLengthArray.reduce((acc, curr) => acc + curr, 0);
     return stringsLengthArraySum;
 } 
-console.log(onlyContainsPSum(test1));
+console.log('esercizio 1', onlyContainsPSum(test1));
 
 
 //v2
@@ -208,13 +208,13 @@ function onlyContainsPSum2(arr) {
     const newArray = arr.filter(el => el.toLowerCase().includes('p')).map(el => el.length).reduce((acc, curr) => acc + curr, 0);
     return newArray;
 } 
-console.log(onlyContainsPSum2(test1));
+console.log('esercizio 1', onlyContainsPSum2(test1));
 
 //v3
 function onlyContainsPSum3(arr) {
     return newArray = arr.filter(el => el.toLowerCase().includes('p')).map(el => el.length).reduce((acc, curr) => acc + curr, 0);
 } 
-console.log(onlyContainsPSum3(test1));
+console.log('esercizio 1', onlyContainsPSum3(test1));
 
 //v4 non completa
 // function onlyContainsPSum(arr) {
@@ -253,23 +253,34 @@ function multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(arr){
 
 }
 
-console.log(multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(test2));
+console.log('esercizio 2', multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(test2));
 
-// function multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(arr) {
-//     const multipliedArray = arr.map((el, i) => {
-//       const multipliedValue = el * i;
-//       return multipliedValue;
-//     });
-  
-//     const filteredArray = multipliedArray.filter(el => el <= 1000);
-//     const stringArray = filteredArray.map(el => el.toString());
-  
-//     return stringArray;
-//   }
+
+function multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings2(arr){
+
+    return arr.map((el, i) => el * i).filter(el => el >= 1000).map((el => el.toString()));
+
+}
+
+console.log('esercizio 2', multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings2(test2));
 
 
 
-console.log(multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(test2));
+function multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(arr) {
+    const multipliedArray = arr.map((el, i) => {
+      const multipliedValue = el * i;
+      return multipliedValue;
+    });
+
+    const filteredArray = multipliedArray.filter(el => el <= 1000);
+    const stringArray = filteredArray.map(el => el.toString());
+
+    return stringArray;
+}
+
+
+
+console.log(multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings3(test2));
 
 //3) Data una stringa, eliminare tutte le parole più corte di 4 caratteri
 //   e restituirle in un array ordinate per lunghezza dalla più lunga
@@ -292,7 +303,7 @@ return sortedArray;
 
 }
 
-console.log(removeShortWordsReturnWordsFromTheLongest(test3));
+console.log('esercizio 3', removeShortWordsReturnWordsFromTheLongest(test3));
 
 
 function removeShortWordsReturnWordsFromTheLongest2(str){
@@ -301,7 +312,7 @@ function removeShortWordsReturnWordsFromTheLongest2(str){
 
 }
 
-console.log(removeShortWordsReturnWordsFromTheLongest2(test3));
+console.log('esercizio 3', removeShortWordsReturnWordsFromTheLongest2(test3));
 
 
 function removeShortWordsReturnWordsFromTheLongest3(str){
@@ -320,4 +331,4 @@ function removeShortWordsReturnWordsFromTheLongest3(str){
     return finalAccumulator;
 }
 
-console.log(removeShortWordsReturnWordsFromTheLongest3(test3));
+console.log('esercizio 3', removeShortWordsReturnWordsFromTheLongest3(test3));
