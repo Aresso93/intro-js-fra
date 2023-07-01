@@ -185,3 +185,139 @@ function convertToNumbersAndSumAllNumbers4(str){
 }
 
 console.log(convertToNumbersAndSumAllNumbers4(testString));
+
+// Con tutti e 4 i procedimenti
+//1)  Dato un array di stringhe, 
+//   eliminare tutte quelle che non contengono la lettera p
+//   e ritornare la somma delle lunghezze delle rimanenti
+
+const test1 = ['pippo', 'pluto', 'qui', 'quo', 'qua', 'paperone'];
+
+// v1
+function onlyContainsPSum(arr) {
+    const onlyContainsP = arr.filter(el => el.toLowerCase().includes('p'));
+    const stringsLengthArray = onlyContainsP.map(el => el.length);
+    const stringsLengthArraySum = stringsLengthArray.reduce((acc, curr) => acc + curr, 0);
+    return stringsLengthArraySum;
+} 
+console.log(onlyContainsPSum(test1));
+
+
+//v2
+function onlyContainsPSum2(arr) {
+    const newArray = arr.filter(el => el.toLowerCase().includes('p')).map(el => el.length).reduce((acc, curr) => acc + curr, 0);
+    return newArray;
+} 
+console.log(onlyContainsPSum2(test1));
+
+//v3
+function onlyContainsPSum3(arr) {
+    return newArray = arr.filter(el => el.toLowerCase().includes('p')).map(el => el.length).reduce((acc, curr) => acc + curr, 0);
+} 
+console.log(onlyContainsPSum3(test1));
+
+//v4 non completa
+// function onlyContainsPSum(arr) {
+//     const acc = 0;
+//     for (const element of arr) {
+//         if (element.toLowerCase().includes('p')) {
+//             const sum = element.length.reduce((acc, curr) => acc + curr, 0);
+//         }
+//     }
+// }
+
+
+//2) Dato un array di numeri, moltiplicarli per il loro indice
+//   rimuovere quelli maggiori di 1000
+//   e restituirli in formato stringa, separati da punto e virgola
+
+const test2 = [100, 10, 24, -20, 300, 6, 100, 300];
+
+function multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(arr){
+
+    const multipliedArray = arr.map((el, i) => {
+    const multipliedValue = el * i;
+    return multipliedValue;
+  });
+  
+    const smallArray = multipliedArray.filter(el => {
+        if (el >= 1000) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+
+    const stringArray = smallArray.map(el => el.toString());
+    return stringArray;
+
+}
+
+console.log(multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(test2));
+
+// function multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(arr) {
+//     const multipliedArray = arr.map((el, i) => {
+//       const multipliedValue = el * i;
+//       return multipliedValue;
+//     });
+  
+//     const filteredArray = multipliedArray.filter(el => el <= 1000);
+//     const stringArray = filteredArray.map(el => el.toString());
+  
+//     return stringArray;
+//   }
+
+
+
+console.log(multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(test2));
+
+//3) Data una stringa, eliminare tutte le parole più corte di 4 caratteri
+//   e restituirle in un array ordinate per lunghezza dalla più lunga
+
+const test3 = 'ho fatto il bucato ieri sera ma si è colorato tutto di violetto';
+
+function removeShortWordsReturnWordsFromTheLongest(str){
+
+    let sentenceArray = str.split(' ');
+    let smallerArray = sentenceArray.filter(el => {
+        if (el.length > 4) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+    
+const sortedArray = smallerArray.sort((a, b) => b.length - a.length);
+return sortedArray;
+
+}
+
+console.log(removeShortWordsReturnWordsFromTheLongest(test3));
+
+
+function removeShortWordsReturnWordsFromTheLongest2(str){
+
+    return str.split(' ').filter(el => el.length > 4).sort((a, b) => b.length - a.length);
+
+}
+
+console.log(removeShortWordsReturnWordsFromTheLongest2(test3));
+
+
+function removeShortWordsReturnWordsFromTheLongest3(str){
+    const stringArray = str.split(' ');
+    
+    let accumulator = [];
+
+    for (const str of stringArray) {
+
+        if (str.length > 4) {
+            accumulator.push(str);
+        };
+    }
+   let finalAccumulator = accumulator.sort((a, b) => b.length - a.length); 
+
+    return finalAccumulator;
+}
+
+console.log(removeShortWordsReturnWordsFromTheLongest3(test3));
