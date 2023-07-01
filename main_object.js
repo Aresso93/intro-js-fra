@@ -33,7 +33,7 @@ console.log(Object.values(studente));
 
 for (const key in studente) {                    //fa un ciclo nel mio array (la key di string)
     
-    const value = studente[key];                 //
+    const value = studente[key];                
     console.log(value);
 }
 
@@ -117,7 +117,7 @@ function calculateMean(student) {
     let sum = 0;
 
     for (const mark of student.marks) {
-        sum += mark;
+        sum += mark;                            //sum += mark è come dire sum = sum + mark
     }
 
     const mean = sum/student.marks.length;              //length è una di quelle parole che è meglio non usare per questo scopo
