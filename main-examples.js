@@ -266,7 +266,7 @@ console.log('esercizio 2', multiplyArrayByIndexRemoveGreaterThan1000TurnThemInto
 
 
 
-function multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings(arr) {
+function multiplyArrayByIndexRemoveGreaterThan1000TurnThemIntoStrings3(arr) {
     const multipliedArray = arr.map((el, i) => {
       const multipliedValue = el * i;
       return multipliedValue;
@@ -332,3 +332,78 @@ function removeShortWordsReturnWordsFromTheLongest3(str){
 }
 
 console.log('esercizio 3', removeShortWordsReturnWordsFromTheLongest3(test3));
+
+
+//ESERCIZI CAPITOLO 4 ELOQUENT JAVASCRIPT
+
+//Write a range function that takes two arguments, 
+//start and end, and returns an array containing all the numbers from start up to (and including) end.
+
+function range (start, end, step = 1){
+
+    const tempArray = [];
+
+    if (end < start){
+        return tempArray;
+    }
+
+    for (let i = start; i <= end; i+= step) {   //qui con lo step ho messo che i aumenta ogni volta dello step
+     tempArray.push(i);
+        
+    }
+
+    return tempArray;
+}
+
+console.log(range(-5, 50));
+console.log(range(0, 100, 2));      //se aggiungo il parametro step alla funzione (default 1) e qui gli do 2, mi printa solo i numeri pari, vale a dire che aumenta di 2
+
+
+function sum(numbers){
+
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+
+}
+
+console.log(sum(range(0, 10)));
+
+//CAP 4 ES 2
+
+const testArray2 = ['qui', 'quo', 'qua'];
+
+function reverseArray(arr){
+
+    tempArray = [];
+
+    for (let i = arr.length -1; i >= 0; i--) {
+        const element = arr[i];
+        tempArray.push(element);
+
+    }
+
+    return tempArray;
+}
+
+const newArray2 = reverseArray(testArray2);
+
+console.log(newArray2);
+
+function reverseArrayInPlace(arr){
+
+    const cloneArray = [...arr]              //i tre puntini seguiti dal nome del parametro me lo clonano
+
+    let j = 0;
+
+    for (let i = cloneArray.length -1; i >= 0; i--) {
+        const element = cloneArray[i];
+
+        arr[j] = element;
+        j++;
+//questo ciclo prende l'array arr, lo clona, poi fa due indici. i che va dalla fine a 0 e j che va da 0 alla fine
+    }
+
+}
+
+reverseArrayInPlace(testArray2)
+
+console.log(testArray2);
